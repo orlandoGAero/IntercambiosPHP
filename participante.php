@@ -38,7 +38,7 @@
     <?php include_once('head.php') ?>
 </head>
 <body>
-    <div class="container m-5">
+    <div class="container-sm m-sm-5">
         <div class="mt-5 row">
             <div class="col-md-8 offset-md-2 mt-2">
                 <div class="jumbotron" style="background-color: #a4d7db">

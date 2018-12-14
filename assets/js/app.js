@@ -3,16 +3,16 @@ $(document).ready(function() {
     $("#formCrear").submit(function(e) {
         e.preventDefault();
         if( $("input[name='date_fecha']").val() == "") {
-            alert("Ingresa una fecha");
+            swal("Ingresa una fecha", "", "error");
         } else if( $("input[name='txt_grupo']").val() == "") {
-            alert("Ingresa el nombre del grupo");
+            swal("Ingresa el nombre del grupo", "", "error");
         } else if( $("input[name='txt_nombre']").val() == "") {
-            alert("Ingresa tu nombre");
+            swal("Ingresa tu nombre", "", "error");
         } else if( $("input[name='txt_apellido']").val() == "") {
-            alert("Ingresa tu apellido");
+            swal("Ingresa tu apellido", "", "error");
         } else {
-            $("#btnCrear").click(function(e){
-                e.preventDefault();
+            // $("#btnCrear").click(function(){
+                // e.preventDefault();
 
                 $.ajax({
                     url : "grupo.php",
@@ -23,19 +23,18 @@ $(document).ready(function() {
                     $("#resultado").html(html)
                 });
 
-            });
+            // });
         }
     });
 
     $("#formRegistro").submit(function(e) {
         e.preventDefault();
         if( $("input[name='txt_nom']").val() == "") {
-            alert("Ingresa tu nombre");
+            swal("Ingresa tu nombre", "", "error");
         } else if( $("input[name='txt_apep']").val() == "") {
-            alert("Ingresa tu apellido");
+            swal("Ingresa tu apellido", "", "error");
         } else {
-            $("#btnParticipar").click(function(e){
-                e.preventDefault();
+            // $("#btnParticipar").click(function(){
 
                 $.ajax({
                     url : "participante.php",
@@ -46,7 +45,7 @@ $(document).ready(function() {
                     $("#mostrar").html(html)
                 });
 
-            });
+            // });
         }
     });
 

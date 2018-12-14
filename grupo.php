@@ -51,14 +51,14 @@
     <?php include_once('head.php') ?>
 </head>
 <body>
-    <div class="container m-5">
+    <div class="container-sm m-sm-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
                         <h3 class="h3 text-info text-center">Felicidades! <b><?=$nombre?></b> Haz creado el grupo:</h3>
                         <h4 class="h4 text-danger text-center"><?=$nomGrupo?></h4>
-                        <div class="row mt-md-5">
+                        <div class="row mt-md-5 text-center">
                             <div class="col-md-4">
                                 <h3 class="h3">Pin de registro:</h3>
                             </div>

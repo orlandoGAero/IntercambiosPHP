@@ -30,10 +30,10 @@
     <?php include_once('head.php') ?>
 </head>
 <body>
-    <div class="container m-5">
+    <div class="container-sm m-sm-5">
         <div id="mostrar">
         
-            <div class="mt-5 row">
+            <div class="mt-sm-5 row">
                 <div class="col-md-9 offset-md-2 mt-2">
                     <div class="jumbotron" style="background-color: #a4d7db">
                         <h3 class="h3">¡Bienvenido! al grupo de intercambio</h3>
@@ -56,10 +56,10 @@
                                 <div class="col-md-4">
                                     <input type="text" name="txt_nom" class="form-control" placeholder="Nombre (obligatorio)">
                                 </div>
-                                <div class="col-md-4 mt-3 mt-sm-0">
+                                <div class="col-md-4 mt-3 mt-md-0">
                                     <input type="text" name="txt_apep" class="form-control" placeholder="Apellido Paterno (obligatorio)">
                                 </div>
-                                <div class="col-md-4 mt-3 mt-sm-0">
+                                <div class="col-md-4 mt-3 mt-md-0">
                                     <input type="text" name="txt_apem" class="form-control" placeholder="Apellido Materno (opcional)">
                                 </div>
                             </div>
