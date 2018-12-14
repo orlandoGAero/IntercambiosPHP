@@ -37,7 +37,7 @@
     <title>Participante</title>
     <?php include_once('head.php') ?>
 </head>
-<body><!--#a4dbcf-->
+<body>
     <div class="container m-5">
         <div class="mt-5 row">
             <div class="col-md-8 offset-md-2 mt-2">
@@ -51,8 +51,8 @@
                             <h2 class="h2 text-danger"><?=$pinPar?></h2>
                         </div>
                     </div>
-                    <p class="lead">Recuerda el pin anterior</p>
-                    <h3 class="h3 text-dark text-center">Amigo Secreto:</h3>
+                    <p class="lead">Es importante recordar tu pin</p>
+                    <h3 class="h3 text-dark text-center">Tu Amigo Secreto para el intercambio es:</h3>
                     <?php if($organizadorNom != "" && $organizadorAp != ""):?>
                         <h2 class="h2 text-center" style="color:#0b5129;"><?=$organizadorNom." ".$organizadorAp?></h2>
                     <?php endif;?>

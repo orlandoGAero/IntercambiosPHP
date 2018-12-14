@@ -34,7 +34,7 @@
         <div id="mostrar">
         
             <div class="mt-5 row">
-                <div class="col-md-8 offset-md-2 mt-2">
+                <div class="col-md-9 offset-md-2 mt-2">
                     <div class="jumbotron" style="background-color: #a4d7db">
                         <h3 class="h3">¡Bienvenido! al grupo de intercambio</h3>
                         <h1 class="h1 text-danger"><?=$grupo['nombre']?></h1>
@@ -48,19 +48,19 @@
                         </div>
                         <p class="lead">Registrate para unirte a nuestro intercambio de regalos</p>
                         <hr class="my-4">
-                        <form method="post">
+                        <form method="post" id="formRegistro">
                             <input type="hidden" name="txt_idG" value="<?=$grupo['idgrupo']?>" readonly/>
                             <input type="hidden" name="h_nor" value="<?=$nom?>" readonly/>
                             <input type="hidden" name="h_ape" value="<?=$ap?>" readonly/>
                             <div class="form-group row mt-3">
                                 <div class="col-md-4">
-                                    <input type="text" name="txt_nom" class="form-control" placeholder="Nombre">
+                                    <input type="text" name="txt_nom" class="form-control" placeholder="Nombre (obligatorio)">
                                 </div>
                                 <div class="col-md-4 mt-3 mt-sm-0">
-                                    <input type="text" name="txt_apep" class="form-control" placeholder="Apellido Paterno">
+                                    <input type="text" name="txt_apep" class="form-control" placeholder="Apellido Paterno (obligatorio)">
                                 </div>
                                 <div class="col-md-4 mt-3 mt-sm-0">
-                                    <input type="text" name="txt_apem" class="form-control" placeholder="Apellido Materno">
+                                    <input type="text" name="txt_apem" class="form-control" placeholder="Apellido Materno (opcional)">
                                 </div>
                             </div>
                             <div class="form-group row mt-3">

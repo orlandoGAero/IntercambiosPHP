@@ -10,7 +10,6 @@
     $nombre = $_REQUEST['txt_nombre'];
     $apellido= $_REQUEST['txt_apellido'];
     $correo = $_REQUEST['txt_email'];
-    $contra = $_REQUEST['pwd_contrasena'];
 
     //Método con str_shuffle() 
     function generarRandCad($length = 6) { 
@@ -40,8 +39,8 @@
     }else{
         $id_org = $fnFila[0]+1;
     }
-				 
-    $claseOrg->nuevoOrganizador($id_org,$nombre,$apellido,$correo,$contra,$pinOr);
+                
+    $claseOrg->nuevoOrganizador($id_org,$nombre,$apellido,$correo,$pinOr);
 
     $claseGrupo->relacionarGrupoOrg($id_org,$id_grupo);
 ?>
@@ -59,6 +58,14 @@
                     <div class="container">
                         <h3 class="h3 text-info text-center">Felicidades! <b><?=$nombre?></b> Haz creado el grupo:</h3>
                         <h4 class="h4 text-danger text-center"><?=$nomGrupo?></h4>
+                        <div class="row mt-md-5">
+                            <div class="col-md-4">
+                                <h3 class="h3">Pin de registro:</h3>
+                            </div>
+                            <div class="col-md-2">
+                                <h2 class="h2 text-danger"><?=$pinOr?></h2>
+                            </div>
+                        </div>
                         <div class="bg-dark px-5 py-1 mt-5">
                             <p class="h4 text-white mt-5 font-weight-bold">Invita a los participantes, usando el enlace de registro</p>
                             <p class="lead text-white mt-5 font-italic">Comparte el siguiente enlace para invitar a unirse a tu grupo</p>

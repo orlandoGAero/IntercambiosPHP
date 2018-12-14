@@ -9,18 +9,17 @@
 			return $fila;
         }
 
-        public function nuevoOrganizador($id_org,$nombre,$apellido,$correo,$pwd,$pin) {
+        public function nuevoOrganizador($id_org,$nombre,$apellido,$correo,$pin) {
 
             try {
 				$Conexion = new dbConn();
-				$query = "INSERT INTO organizadores (idorganizador,nombre,apellido,correo,contrasena,pin,fecha_registro)
-                          VALUES (:idOrg, :nom, :ape, :email, :pwd, :pin, NOW());";
+				$query = "INSERT INTO organizadores (idorganizador,nombre,apellido,correo,pin,fecha_registro)
+                          VALUES (:idOrg, :nom, :ape, :email, :pin, NOW());";
 				$sql = $Conexion->prepare($query);
 				$sql->bindParam(':idOrg', $id_org);
 				$sql->bindParam(':nom', $nombre);
 				$sql->bindParam(':ape', $apellido);
 				$sql->bindParam(':email', $correo);
-				$sql->bindParam(':pwd', $pwd);
 				$sql->bindParam(':pin', $pin);
 				$result = $sql->execute();
 				
