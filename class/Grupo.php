@@ -61,5 +61,55 @@
 				print $e->getMessage();
 			}
 		}
+
+		public function obtenerGrupoxPin($pin) {
+			try {
+				$query = "SELECT gru.idgrupo,gru.nombre,gru.fecha
+						  FROM rel_grupo_organizador rgo 
+						  INNER JOIN grupos gru ON gru.idgrupo = rgo.id_grup
+						  INNER JOIN organizadores org ON org.idorganizador = rgo.id_org
+						  WHERE org.pin = :Pin;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':Pin', $pin);
+				$sql->execute();
+				$grupo = $sql -> fetch(PDO::FETCH_ASSOC);
+				return $grupo; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
+		public function obtenerCodigo($idGrupo) {
+			try {
+				$query = "SELECT codigo 
+						FROM grupos 
+						WHERE idgrupo = :IDGrupo;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':IDGrupo', $idGrupo);
+				$sql->execute();
+				$organizador = $sql -> fetch(PDO::FETCH_ASSOC);
+				return $organizador; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
+		public function cerrarGrupo($id_grupo) {
+
+            try {
+				$Conexion = new dbConn();
+				$query = "UPDATE grupos SET codigo='' WHERE idgrupo = :idg;";
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':idg', $id_grupo);
+				$result = $sql->execute();
+				
+				return $result;
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		
+		}
     }
 ?>

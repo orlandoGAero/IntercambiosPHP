@@ -11,19 +11,16 @@ $(document).ready(function() {
         } else if( $("input[name='txt_apellido']").val() == "") {
             swal("Ingresa tu apellido", "", "error");
         } else {
-            // $("#btnCrear").click(function(){
-                // e.preventDefault();
 
-                $.ajax({
-                    url : "grupo.php",
-                    method : "post",
-                    data : $("form").serialize()
-                })
-                .done(function(html){
-                    $("#resultado").html(html)
-                });
+            $.ajax({
+                url : "grupo.php",
+                method : "post",
+                data : $("form").serialize()
+            })
+            .done(function(html){
+                $("#resultado").html(html)
+            });
 
-            // });
         }
     });
 
@@ -34,19 +31,59 @@ $(document).ready(function() {
         } else if( $("input[name='txt_apep']").val() == "") {
             swal("Ingresa tu apellido", "", "error");
         } else {
-            // $("#btnParticipar").click(function(){
 
-                $.ajax({
-                    url : "participante.php",
-                    method : "post",
-                    data : $("form").serialize()
-                })
-                .done(function(html){
-                    $("#mostrar").html(html)
-                });
+            $.ajax({
+                url : "participante.php",
+                method : "post",
+                data : $("form").serialize()
+            })
+            .done(function(html){
+                $("#mostrar").html(html)
+            });
 
-            // });
         }
+    });
+
+    $("#btnPanel").click(function(){
+        let url = "login.php";
+        $(location).attr('href',url);
+    });
+
+    $("#btnNuevo").click(function(){
+        let url = "index.php";
+        $(location).attr('href',url);
+    });
+
+    $("#formLogin").submit(function(e) {
+        e.preventDefault();
+        if( $("input[name='txt_pin']").val() == "") {
+            swal("Ingresa tu pin", "", "error");
+        } 
+        else {
+            
+            $.ajax({
+                url : "validar.php",
+                method : "post",
+                data : $("form").serialize()
+            })
+            .done(function(html){
+                $("#resultado").html(html)
+            });
+
+        }
+    });
+
+    $("#btnCerrar").submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url : "cerrar-grupo.php",
+            method : "post",
+            data: $("form").serialize()
+        })
+        .done(function(html){
+            $("#respuesta").html(html)
+        });
+
     });
 
 });

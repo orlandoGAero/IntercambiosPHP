@@ -85,5 +85,23 @@
 			}
 		}
 
+		public function obtenerParticipantes($idGrupo) {
+			try {
+				$query = "SELECT par.nombre,par.apellidop,par.apellidom
+						  FROM rel_grupo_participante rgp 
+						  INNER JOIN grupos grup ON grup.idgrupo = rgp.idgrupo
+						  INNER JOIN participantes par ON par.idparticipante = rgp.idparticipante
+						  WHERE grup.idgrupo = :IdGrupo;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':IdGrupo', $idGrupo);
+				$sql->execute();
+				$participantes = $sql -> fetchAll(PDO::FETCH_ASSOC);
+				return $participantes; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
     }
 ?>

@@ -53,15 +53,9 @@
                     </div>
                     <p class="lead">Es importante recordar tu pin</p>
                     <h3 class="h3 text-dark text-center">Tu Amigo Secreto para el intercambio es:</h3>
-                    <?php if($organizadorNom != "" && $organizadorAp != ""):?>
-                        <h2 class="h2 text-center" style="color:#0b5129;"><?=$organizadorNom." ".$organizadorAp?></h2>
-                    <?php endif;?>
-                    <?php if($organizadorNom == "" && $organizadorAp == ""):
-                    
-                        $amigoSecreto = $claseParticipante->obtenerAmigo($iddegrupo);
-                    ?>
+                    <?php if(isset($organizadorNom) && isset($organizadorAp)):?>
                         <h2 class="h2 text-center" style="color:#0b5129;">
-                            <?=$amigoSecreto['nombre']." ".$amigoSecreto['apellidop']." ".$amigoSecreto['apellidom']?>
+                            <?=$organizadorNom." ".$organizadorAp?>
                         </h2>
                     <?php endif;?>
                     <h3 class="h3 font-weight-bold text-primary text-center mt-md-5">¡DIVIERTETE!</h3>

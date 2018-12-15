@@ -15,6 +15,15 @@
                     <p class="textoFiestas text-center">¡Te desea Felices Fiestas!</p>
                 </div>
             </div>
+            <div class="row d-flex my-3 justify-content-center">
+                <div class="col-md-2">
+                    <button class="btn btn-outline-info" id="btnNuevo">Crear Grupo</button>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-outline-danger" id="btnPanel">Panel Grupo</button>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-12 d-md-flex justify-content-md-center">
                     <p class="h1 text-center text-danger">
@@ -63,7 +72,7 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center" style="color: #ccc">
+    <div class="d-flex justify-content-center fixed-bottom" style="color: #ccc;">
         <p>Derechos Reservados &copy;</p>
     </div>
     <script

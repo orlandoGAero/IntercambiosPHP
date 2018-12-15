@@ -47,5 +47,39 @@
 				print $e->getMessage();
 			}
 		}
+
+		public function obtenerOrganizadorCerrar($idGrupo) {
+			try {
+				$query = "SELECT org.nombre,org.apellido,org.fecha_registro
+							FROM rel_grupo_organizador rgo 
+							INNER JOIN grupos gru ON gru.idgrupo = rgo.id_grup
+							INNER JOIN organizadores org ON org.idorganizador = rgo.id_org
+							WHERE gru.idgrupo = :IdGrupo;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':IdGrupo', $idGrupo);
+				$sql->execute();
+				$organizador = $sql -> fetchAll(PDO::FETCH_ASSOC);
+				return $organizador; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
+		public function iniciarPanel($pin) {
+			try {
+				$query = "SELECT nombre,apellido,pin 
+						  FROM organizadores 
+						  WHERE pin = :Pin;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':Pin', $pin);
+				$sql->execute();
+				$organizador = $sql -> fetch(PDO::FETCH_ASSOC);
+				return $organizador; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
     }
 ?>

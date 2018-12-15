@@ -66,6 +66,7 @@
                                 <h2 class="h2 text-danger"><?=$pinOr?></h2>
                             </div>
                         </div>
+                        <p class="lead">Es importante recordar tu pin, para ver detalles del grupo</p>
                         <div class="bg-dark px-5 py-1 mt-5">
                             <p class="h4 text-white mt-5 font-weight-bold">Invita a los participantes, usando el enlace de registro</p>
                             <p class="lead text-white mt-5 font-italic">Comparte el siguiente enlace para invitar a unirse a tu grupo</p>
