@@ -103,5 +103,30 @@
 			}
 		}
 
+		public function obtenerParticipanteDuplicado($nom,$apPat,$apMat,$idGrupo) {
+			try {
+				$query = "SELECT par.nombre,par.apellidop,par.apellidom
+						FROM rel_grupo_participante rgp 
+						INNER JOIN grupos grup ON grup.idgrupo = rgp.idgrupo
+						INNER JOIN participantes par ON par.idparticipante = rgp.idparticipante					
+						WHERE par.nombre = :Nombre 
+						AND par.apellidop = :apP 
+						AND par.apellidom = :apM 
+						AND grup.idgrupo = :IdGrupo;
+				";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':Nombre', $nom);
+				$sql->bindParam(':apP', $apPat);
+				$sql->bindParam(':apM', $apMat);
+				$sql->bindParam(':IdGrupo', $idGrupo);
+				$sql->execute();
+				$filas = $sql -> rowCount();
+				return $filas; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
     }
 ?>
