@@ -71,7 +71,10 @@
                             <p class="h4 text-white mt-5 font-weight-bold">Invita a los participantes, usando el enlace de registro</p>
                             <p class="lead text-white mt-5 font-italic">Comparte el siguiente enlace para invitar a unirse a tu grupo</p>
                             <div class="input-group mb-3">
-                                <input type="text" value="http://localhost:81/Intercambio/registro.php?q=<?=$folioGrupo?>" class="form-control" id="copiar" readonly>
+                                <!-- local Ubuntu-->
+                                <!-- <input type="text" value="http://localhost:81/Intercambio/registro.php?q=<?=$folioGrupo?>" class="form-control" id="copiar" readonly> -->
+                                <!-- local Win7-->
+                                <input type="text" value="http://localhost/orlando/Intercambio/registro.php?q=<?=$folioGrupo?>" class="form-control" id="copiar" readonly>
                                 <div class="input-group-append">
                                     <button class="copy btn btn-success" type="button" 
                                             data-clipboard-target="#copiar">
