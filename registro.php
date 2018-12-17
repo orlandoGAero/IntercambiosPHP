@@ -29,19 +29,7 @@
             <div class="mt-sm-5 row d-flex justify-content-center ">
                 <div class="col-md-9 mt-2">
                     <div class="jumbotron" style="background-color: #a4d7db">
-                        <?php if($codigoGrupoBd != "" && $codigo == $codigoGrupoBd ) :
-                                                    
-                            $primer = $claseParticipante->consultarParticipante($idGrup);
-                            if($primer == 0) {
-                                $or = $claseOrga->obtenerOrganizador($idGrup);
-                                $nom = $or['nombre'];
-                                $ap = $or['apellido'];
-                            } else if ($primer == 1) {
-                                $amigoSecreto = $claseParticipante->obtenerAmigo($idGrup);
-                                $nom = $amigoSecreto['nombre'];
-                                $ap = $amigoSecreto['apellidop']." ".$amigoSecreto['apellidom'];
-                            }       
-                        ?>
+                        <?php if($codigoGrupoBd != "" && $codigo == $codigoGrupoBd ) : ?>
                             <h3 class="h3">¡Bienvenido! al grupo de intercambio</h3>
                             <h1 class="h1 text-danger"><?=$grupo['nombre']?></h1>
                             <div class="row">
@@ -56,8 +44,6 @@
                             <hr class="my-4">
                             <form method="post" id="formRegistro">
                                 <input type="hidden" name="txt_idG" value="<?=$grupo['idgrupo']?>" readonly/>
-                                <input type="hidden" name="h_nor" value="<?=$nom?>" readonly/>
-                                <input type="hidden" name="h_ape" value="<?=$ap?>" readonly/>
                                 <div class="form-group row mt-3">
                                     <div class="col-md-4">
                                         <input type="text" name="txt_nom" class="form-control" placeholder="Nombre (obligatorio)">

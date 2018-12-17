@@ -1,14 +1,15 @@
 <?php
     require_once 'class/Participante.php';
+    require_once 'class/Organizador.php';
+
     $claseParticipante = new Participante();
+    $claseOrga = new Organizador();
 
     $iddegrupo = $_REQUEST['txt_idG'];
     $nombreP = $_REQUEST['txt_nom'];
     $apellidoP = $_REQUEST['txt_apep'];
     $apellidoM = $_REQUEST['txt_apem'];
     $email = $_REQUEST['txt_email'];
-    $organizadorNom = $_REQUEST['h_nor'];
-    $organizadorAp = $_REQUEST['h_ape'];
 
      //Método con str_shuffle() 
     function generarRandCad($length = 6) { 
@@ -39,8 +40,22 @@
         </script>";
     else :
 
+        $primer = $claseParticipante->consultarParticipante($iddegrupo);
+
+        print_r($primer);
+        if($primer == 0) {
+            $or = $claseOrga->obtenerOrganizador($iddegrupo);
+            $nom = $or['nombre'];
+            $ap = $or['apellido'];
+        } else if ($primer == 1) {
+            $amigoSecreto = $claseParticipante->obtenerAmigo($iddegrupo);
+            $nom = $amigoSecreto['nombre'];
+            $ap = $amigoSecreto['apellidop']." ".$amigoSecreto['apellidom'];
+        }  
+
         $claseParticipante->nuevoParticipante($id_par,$nombreP,$apellidoP,$apellidoM,$email,$pinPar);
         $claseParticipante->relacionarGrupoPar($id_par,$iddegrupo);
+
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -64,9 +79,9 @@
                             </div>
                             <p class="lead">Es importante recordar tu pin</p>
                             <h3 class="h3 text-dark text-center">Tu Amigo Secreto para el intercambio es:</h3>
-                            <?php if(isset($organizadorNom) && isset($organizadorAp)):?>
+                            <?php if($nom && $ap) :?>
                                 <h2 class="h2 text-center" style="color:#0b5129;">
-                                    <?=$organizadorNom." ".$organizadorAp?>
+                                    <?=$nom." ".$ap?>
                                 </h2>
                             <?php endif;?>
                             <h3 class="h3 font-weight-bold text-primary text-center mt-md-5">¡DIVIERTETE!</h3>
