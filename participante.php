@@ -42,19 +42,21 @@
 
         $primer = $claseParticipante->consultarParticipante($iddegrupo);
 
-        print_r($primer);
         if($primer == 0) {
             $or = $claseOrga->obtenerOrganizador($iddegrupo);
             $nom = $or['nombre'];
             $ap = $or['apellido'];
+            $pindeAmigo = $or['pin'];
         } else if ($primer == 1) {
             $amigoSecreto = $claseParticipante->obtenerAmigo($iddegrupo);
             $nom = $amigoSecreto['nombre'];
             $ap = $amigoSecreto['apellidop']." ".$amigoSecreto['apellidom'];
+            $pindeAmigo = $amigoSecreto['pin'];
         }  
 
         $claseParticipante->nuevoParticipante($id_par,$nombreP,$apellidoP,$apellidoM,$email,$pinPar);
         $claseParticipante->relacionarGrupoPar($id_par,$iddegrupo);
+        $claseParticipante->relacionarAmigo($id_par,$pindeAmigo);
 
 ?>
         <!DOCTYPE html>

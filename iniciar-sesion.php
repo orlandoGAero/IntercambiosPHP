@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Iniciar Panel</title>
+    <title>Iniciar Sesión</title>
     <?php include_once('head.php') ?>
 </head>
 <body>
@@ -28,14 +28,14 @@
             </div>
 
             <div class="mt-5">
-                <p class="lead text-center">Ingresa tu pin para ver los detalles del grupo</p>
+                <p class="lead text-center">Ingresa tu pin, para consultar detalles del grupo o tu amigo secreto</p>
                     
-                <form method="post" class="form-inline d-flex justify-content-center" id="formLogin">
+                <form method="post" class="form-inline d-flex justify-content-center" id="formIniciar">
                     <div class="form-group mb-2">
                         <input type="text" class="form-control" name="txt_pin" placeholder="Pin">
                     </div>
                     <div class="form-group mx-3 mt-3 mt-md-0">
-                        <button type="submit" name="btnLogin" class="btn btn-primary mb-2">Entrar</button>
+                        <button type="submit" name="btnEntrar" class="btn btn-primary mb-2">Entrar</button>
                     </div>
                 </form>
             </div>

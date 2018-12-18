@@ -54,6 +54,11 @@ $(document).ready(function() {
         $(location).attr('href',url);
     });
 
+    $("#btnParticipante").click(function(){
+        let url = "iniciar-sesion.php";
+        $(location).attr('href',url);
+    });
+
     $("#formLogin").submit(function(e) {
         e.preventDefault();
         if( $("input[name='txt_pin']").val() == "") {
@@ -63,6 +68,25 @@ $(document).ready(function() {
             
             $.ajax({
                 url : "validar.php",
+                method : "post",
+                data : $("form").serialize()
+            })
+            .done(function(html){
+                $("#resultado").html(html)
+            });
+
+        }
+    });
+
+    $("#formIniciar").submit(function(e) {
+        e.preventDefault();
+        if( $("input[name='txt_pin']").val() == "") {
+            swal("Ingresa tu pin", "", "error");
+        } 
+        else {
+            
+            $.ajax({
+                url : "validarP.php",
                 method : "post",
                 data : $("form").serialize()
             })

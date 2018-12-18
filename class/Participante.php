@@ -69,7 +69,7 @@
 
 		public function obtenerAmigo($idGrupo) {
 			try {
-				$query = "SELECT par.nombre,par.apellidop,par.apellidom
+				$query = "SELECT par.nombre,par.apellidop,par.apellidom,par.pin
 						FROM rel_grupo_participante rgp 
 						INNER JOIN grupos grup ON grup.idgrupo = rgp.idgrupo
 						INNER JOIN participantes par ON par.idparticipante = rgp.idparticipante
@@ -77,6 +77,22 @@
 				$Conexion = new dbConn();
 				$sql = $Conexion->prepare($query);
 				$sql->bindParam(':IdGrupo', $idGrupo);
+				$sql->execute();
+				$amigo = $sql -> fetch(PDO::FETCH_ASSOC);
+				return $amigo; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
+		public function obtenerAmigoxPinAmigo($pinA) {
+			try {
+				$query = "SELECT nombre,apellidop,apellidom
+							FROM participantes
+							WHERE pin = :pinAmigo;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':pinAmigo', $pinA);
 				$sql->execute();
 				$amigo = $sql -> fetch(PDO::FETCH_ASSOC);
 				return $amigo; 
@@ -123,6 +139,56 @@
 				$sql->execute();
 				$filas = $sql -> rowCount();
 				return $filas; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
+		public function relacionarAmigo($id_par,$pinA) {
+
+            try {
+				$Conexion = new dbConn();
+				$query = "INSERT INTO amigo_secreto(id_participante,pin_amigo)
+						VALUES (:idPar, :pinAmigo); ";
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':idPar', $id_par);
+				$sql->bindParam(':pinAmigo', $pinA);
+				$result = $sql->execute();
+				
+				return $result;
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+
+		}
+
+		public function verInfo($pin) {
+			try {
+				$query = "SELECT idparticipante,nombre,apellidop,apellidom,pin 
+						  FROM participantes
+						  WHERE pin = :Pin;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':Pin', $pin);
+				$sql->execute();
+				$participante = $sql -> fetch(PDO::FETCH_ASSOC);
+				return $participante; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
+		public function obtenerPinAmigoPart($idPart) {
+			try {
+				$query = "SELECT pin_amigo
+						FROM amigo_secreto
+						WHERE id_participante = :idP;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':idP', $idPart);
+				$sql->execute();
+				$pinA = $sql -> fetch(PDO::FETCH_ASSOC);
+				return $pinA; 
 			} catch(PDOException $e) {
 				print $e->getMessage();
 			}

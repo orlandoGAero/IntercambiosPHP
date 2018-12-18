@@ -15,12 +15,15 @@
                     <p class="textoFiestas text-center">¡Te desea Felices Fiestas!</p>
                 </div>
             </div>
-            <div class="row d-flex my-3 justify-content-center">
-                <div class="col-md-2">
+            <div class="row d-flex my-3 p-md-0 p-3 justify-content-center">
+                <div class="col-md-2 mb-2">
                     <button class="btn btn-outline-info" id="btnNuevo">Crear Grupo</button>
                 </div>
-                <div class="col-md-2">
-                    <button class="btn btn-outline-danger" id="btnPanel">Panel Grupo</button>
+                <div class="col-md-2 mb-2">
+                    <button class="btn btn-outline-danger" id="btnPanel">Ver Grupo</button>
+                </div>
+                <div class="col-md-2 mb-2">
+                    <button class="btn btn-outline-primary" id="btnParticipante">Ver Participante</button>
                 </div>
             </div>
 
@@ -72,9 +75,9 @@
             </div>
         </div>
     </div>
-    <div class="d-flex justify-content-center fixed-bottom" style="color: #ccc;">
+    <!-- <div class="d-flex justify-content-center fixed-bottom" style="color: #ccc;">
         <p>Derechos Reservados &copy;</p>
-    </div>
+    </div> -->
     <script
 			  src="https://code.jquery.com/jquery-3.3.1.js"
 			  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="

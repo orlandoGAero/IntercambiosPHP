@@ -80,10 +80,28 @@
 			}
 		}
 
+		public function obtenerGrupoxPinPart($pin) {
+			try {
+				$query = "SELECT gru.idgrupo,gru.nombre,gru.fecha
+						  FROM rel_grupo_participante rgp 
+						  INNER JOIN grupos gru ON gru.idgrupo = rgp.idgrupo
+						  INNER JOIN participantes par ON par.idparticipante = rgp.idparticipante
+						  WHERE par.pin = :Pin;";
+				$Conexion = new dbConn();
+				$sql = $Conexion->prepare($query);
+				$sql->bindParam(':Pin', $pin);
+				$sql->execute();
+				$grupo = $sql -> fetch(PDO::FETCH_ASSOC);
+				return $grupo; 
+			} catch(PDOException $e) {
+				print $e->getMessage();
+			}
+		}
+
 		public function obtenerCodigo($idGrupo) {
 			try {
 				$query = "SELECT codigo 
-						FROM grupos 
+						FROM grupos
 						WHERE idgrupo = :IDGrupo;";
 				$Conexion = new dbConn();
 				$sql = $Conexion->prepare($query);
