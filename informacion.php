@@ -33,14 +33,13 @@
                         <h3 class="h3 text-warning"><?=$pinP?></h3>
                     </div>
                 </div>
-                <h5 class="h5 text-white mb-3"><?=$grupo['nombre']?></h5>
+                <h6 class="h6 text-white">Perteneces al grupo:</h6>
+                <h5 class="h5 text-white mb-4"><?=$grupo['nombre']?></h5>
+                <h6 class="h6 text-white">D&iacute;a del intercambio:</h6>
                 <h5 class="h5 text-white mb-2"><?=$grupo['fecha']?></h5>
             </div>
             <div class="col-md-6 p-5 d-flex align-items-center justify-content-center" style="background-color: #f8f8f8">
                 <?php
-                    // $organizador = $claseOrganizador->obtenerOrganizadorxPin($pinO);
-                    // $idO = $organizador['idorganizador'];
-
                     $amigoPar = $claseParticipante->obtenerPinAmigoPart($idPar);
                     $pinAmigo = $amigoPar['pin_amigo'];
                     
