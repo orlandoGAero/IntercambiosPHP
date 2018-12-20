@@ -51,6 +51,36 @@
                 <?php endif; ?>
             </div>
             <div class="col-md-6 p-5" style="background-color: #f8f8f8">
+                <div class="row mb-4">
+                    <div class="col-md-10">
+                    <?php
+                        $participantes = $claseParticipante->getParticipantesNom($idGrupo);
+                        if($participantes != null):
+                    ?>
+                        <h3 class="h3 text-dark">Participantes</h3>
+                        <ul class="list-group list-group-flush" style="background-color: #f8f8f8">
+                            <?php foreach ($participantes as $participante) : ?>    
+                                <li class="list-group-item font-weight-bold" style="background-color: #f8f8f8;border-color: #f8f8f8;font-size: 1.2rem;color: #1e3953;padding: .35rem 1.25rem;">
+                                    <?=$participante['nombre']." ".$participante['apellidop']." ".$participante['apellidom']?>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <?php else: ?>
+                        <h3 class="h3 text-dark">Aún no hay Participantes registrados</h3>
+                        <?php endif; ?>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div class="col d-flex justify-content-end">
+                                <a href="logout.php" style="text-decoration: none">
+                                    <button class="btn btn-primary btn-sm text-white font-weight-bold">
+                                        Salir
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div id="respuesta"></div>
                 <?php if ($codigo == ""): 
                     $organizador = $claseOrganizador->obtenerOrganizadorxPin($pinO);
@@ -61,22 +91,7 @@
 
                     $amigoSecreto = $claseParticipante->obtenerAmigoxPinAmigo($pinAmigo);
                 ?>
-                    <div class="row mb-4">
-                        <div class="col">
-                        <h3 class="h3 text-dark">Participantes</h3>
-                            <?php
-                                $participantes = $claseParticipante->getParticipantesNom($idGrupo);
-                                // print_r($participantes);
-                            ?>
-                                <ul class="list-group list-group-flush" style="background-color: #f8f8f8">
-                                    <?php foreach ($participantes as $participante) : ?>    
-                                        <li class="list-group-item font-weight-bold" style="background-color: #f8f8f8;border-color: #f8f8f8;font-size: 1.2rem;color: #1e3953;padding: .35rem 1.25rem;">
-                                            <?=$participante['nombre']." ".$participante['apellidop']." ".$participante['apellidom']?>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                        </div>
-                    </div>
+                    
                     <div class="row">
                         <div class="col">
                             <p class="font-italic" style="font-size: 1.2rem">Ya ha sido cerrado el grupo</p>
